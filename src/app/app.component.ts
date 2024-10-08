@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { SafeValue } from '@angular/platform-browser';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import { SafeValue } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('qrCode', { static: false }) qrCodeElement!: ElementRef<HTMLCanvasElement>;
+
   title = 'QR_code_genaration';
   sampleData = '';
   qrCodeDownloadlink: SafeValue = '';
@@ -19,5 +22,17 @@ export class AppComponent {
 
   onChange(url:SafeValue){
     this.qrCodeDownloadlink = url;
+  }
+
+  downloadPdf(){
+    const pdf = new jsPDF();
+    pdf.text('here is your qr code',10,10);
+    const imgData = this.getQrCodeImage();
+    imgData && pdf.addImage(imgData,'PNG',10,20,180,180);
+    pdf.save('qrcode.pdf');
+  }
+  getQrCodeImage() {
+    const canvas = this.qrCodeElement.nativeElement.querySelector('canvas');
+    return canvas ? canvas.toDataURL('image/png') : '';
   }
 }

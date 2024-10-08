@@ -2,9 +2,13 @@
 
 <qrcode [qrdata]="qrData"></qrcode>
 
-<qrcode (qrCodeURL)="onChange($event)" [qrdata]="sampleData"></qrcode>
+<qrcode #qrCode (qrCodeURL)="onChange($event)" [qrdata]="sampleData"></qrcode>
 
 <h5>enter text to generate qr code</h5>
 <input type="text" [(ngModel)]="sampleData">
-
-<button><a [href]="qrCodeDownloadlink"> Download </a></button>
+<br>
+<br>
+<a [href]="qrCodeDownloadlink"> Download </a>
+<br>
+<br>
+<button (click)="downloadPdf()"> Download PDF </button>
