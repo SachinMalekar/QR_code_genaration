@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'QR_code_genaration';
+
+  employeeDeatils = {
+    FirstName : 'sample',
+    LastName : 'example',
+    MobNo : 9876543210
+  }
+  qrData = JSON.stringify(this.employeeDeatils);
+
 }
