@@ -1,0 +1,49 @@
+<h1> QR Code Generation</h1>
+<!-- 
+<qrcode [qrdata]="qrData"></qrcode>
+
+<qrcode #qrCode (qrCodeURL)="onChange($event)" [qrdata]="sampleData"></qrcode>
+
+<h5>enter text to generate qr code</h5>
+<input type="text" [(ngModel)]="sampleData">
+<br>
+<br>
+<a [href]="qrCodeDownloadlink"> Download </a>
+<br>
+<br>
+<button (click)="downloadPdf()"> Download PDF </button> -->
+
+<table>
+    <tr>
+        <th>CheckBox</th>
+        <th>SrNo</th>
+        <th> qr images</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox" [(ngModel)]="selected"></td>
+        <td>1</td>
+        <td><qrcode [qrdata]="qrData"></qrcode></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" [(ngModel)]="selected"></td>
+        <td>2</td>
+        <td><qrcode [qrdata]="qrData"></qrcode></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" [(ngModel)]="selected"></td>
+        <td>3</td>
+        <td><qrcode [qrdata]="qrData"></qrcode></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" [(ngModel)]="selected"></td>
+        <td>4</td>
+        <td><qrcode [qrdata]="qrData"></qrcode></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" [(ngModel)]="selected"></td>
+        <td>5</td>
+        <td><qrcode [qrdata]="qrData"></qrcode></td>
+    </tr>
+</table>
+<br>
+<button (click)="downloadSelected()">Download Selected</button>
